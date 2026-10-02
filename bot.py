@@ -20,3 +20,5 @@ async def heh(ctx, count_heh = 5):
 
 
 bot.run("bglh do bot")
+
+#algo
