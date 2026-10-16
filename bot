@@ -1,0 +1,40 @@
+import discord
+from discord.ext import commands
+
+
+intents = discord.Intents.default()
+intents.message_content = True  
+
+bot = commands.Bot(command_prefix="!", intents=intents)
+
+@bot.event
+async def on_ready():
+    print(f"Bot conectado como: {bot.user}")
+
+@bot.command()
+async def decomposicao(ctx):
+    # Mensagem simples e direta
+    mensagem = (
+        " **Impacto da Cozinha no Meio Ambiente**\n\n"
+        "Como adultos, o que compramos e jogamos fora impacta diretamente o planeta. "
+        "Veja quanto tempo os itens da sua cozinha levam para sumir na natureza:\n\n"
+        " **Tempo de Decomposição:**\n"
+        " Restos de comida: 2 a 12 meses\n"
+        " Papel toalha: 2 a 6 semanas\n"
+        " Caixas de leite/suco: 5 anos\n"
+        " Esponja de lavar louça: até 500 anos\n"
+        " Sacolas e potes plásticos: mais de 400 anos\n"
+        " Latas de alumínio: 200 a 500 anos\n"
+        " Potes de vidro: mais de 4.000 anos\n\n"
+        " **O que podemos fazer no dia a dia?**\n"
+        "1. Troque a esponja amarela por bucha vegetal (é natural e vira adubo).\n"
+        "2. Evite sacolas plásticas e prefira potes reutilizáveis.\n"
+        "3. Separe o lixo orgânico do reciclável.\n\n"
+        "Pequenas mudanças na cozinha evitam toneladas de poluição no futuro!"
+    )
+    
+    # Envia a mensagem no canal onde o comando foi digitado
+    await ctx.send(mensagem)
+
+# Coloque o token do seu bot aqui dentro das aspas
+bot.run("TOKEN AQUI")
